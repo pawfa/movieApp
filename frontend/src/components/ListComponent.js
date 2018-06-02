@@ -4,13 +4,13 @@ import './ListComponent.css'
 
 class ListComponent extends Component {
   createButtons = ()=>{
-    let {listOfAllMovies} = this.props;
+    let {listOfAllMovies, showMovie} = this.props;
     let buttonsArr = [];
     console.log(listOfAllMovies);
 
     listOfAllMovies.forEach((e,i)=>{
       buttonsArr.push(
-          <Button key={i}>{e.description['Title']}</Button>
+          <Button key={i} id={e._id} onClick={showMovie}>{e.description['Title']}</Button>
       )
     });
     return buttonsArr;
@@ -20,9 +20,6 @@ class ListComponent extends Component {
     return <div className={'listComponent'}>
       {this.createButtons()}
     </div>;
-
   }
-
 }
-{/*<Button onClick={this.props.fetchingMovies} key={i} >{e}</Button>*/}
 export default ListComponent;

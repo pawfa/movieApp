@@ -1,4 +1,5 @@
 import {FETCH_ALL_MOVIES_REQ, SEND_MOVIE_QUERY_REQ} from '../constants.js';
+import {FETCH_COMMENTS_FOR_MOVIE_REQ, SEND_COMMENT_REQ} from '../constants';
 
 export const fetchAllMoviesReq = () => ({
   type: FETCH_ALL_MOVIES_REQ
@@ -9,16 +10,12 @@ export const sendMovieQuery = (query) => ({
   payload: query,
 });
 
-export const fetchAllComments = () => ({
-  type: 'FETCH_ALL_COMMENTS',
+export const sendComment = (comment) => ({
+  type: SEND_COMMENT_REQ,
+  payload: comment,
 });
 
 export const fetchCommentsForMovie = (movieId) => ({
-  type: 'FETCH_COMMENTS_FOR_MOVIE',
+  type: FETCH_COMMENTS_FOR_MOVIE_REQ,
   payload: movieId,
-});
-
-export const sendComment = (content) => ({
-  type: 'SEND_COMMENT',
-  payload: content,
 });

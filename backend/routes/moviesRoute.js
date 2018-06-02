@@ -5,10 +5,8 @@ let fetchMoviesFromExternalApiService = require(
 let database = require('../services/databaseService');
 
 router.get('/movies', function(req, res, next) {
-  database.getAllMoviesTitles().then((moviesArr) => {
-    console.log(moviesArr[0]);
+  database.getAllMovies().then((moviesArr) => {
     res.send(moviesArr);
-
   });
 });
 

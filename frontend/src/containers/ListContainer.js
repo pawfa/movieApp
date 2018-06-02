@@ -10,13 +10,13 @@ class ListContainer extends Component{
   }
 
   render(){
-    return <ListComponent listOfAllMovies ={this.props.moviesList}/>;
+    return <ListComponent listOfAllMovies ={this.props.moviesList} showMovie={this.props.showMovie}/>;
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    moviesList: state.moviesReducer.listOfAllMovies
+    moviesList: state.movies
   };
 };
 const mapDispatchToProps = (dispatch) => {

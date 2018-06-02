@@ -1,20 +1,27 @@
 let express = require('express');
 let router = express.Router();
 let database = require('../services/databaseService');
-let Movie = require('../services/movieModel').Movie;
+let Movie = require('../services/dbModels').Movie;
 
 router.get('/comments', function(req, res, next) {
-  database.getAllComments().then( (commentsArr) =>{
-    res.send(commentsArr);
-  });
+  if(req.query.id){
+    database.getCommentsFromId(req.query.id).then( (comments) =>{
+      res.send(comments);
+    });
+  }else{
+    database.getAllComments().then( (comments) =>{
+      res.send(comments);
+    });
+  }
+
 });
 
 router.post('/comments', function(req, res, next) {
-  console.log(req.body);
-  let {movieId, content} = req.body;
-  database.insertComment(movieId, content).then(
-      res.send(req.body)
-  ).catch ( ()=> { res.status(404).send({ error: 'Movie does not exists' }) });
+  database.insertComment(req.body).then(
+      (data) =>{
+        res.send(data)
+      }
+  ).catch ( (e)=> { console.log(e); res.status(404).send({ error: 'Error while inserting comment' }) });
 });
 
 module.exports = router;

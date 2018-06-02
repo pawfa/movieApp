@@ -8,8 +8,10 @@ let indexRouter = require('./routes/index');
 let database = require('./services/databaseService');
 let cors = require('cors');
 let app = express();
-
-
+app.set('port', process.env.PORT || 3004);
+let listener = app.listen(3004, function(){
+  console.log('Listening on port ' + listener.address().port); //Listening on port 8888
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
