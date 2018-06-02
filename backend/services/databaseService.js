@@ -21,28 +21,41 @@ module.exports.createDb = () => mongoose.connect(
 
 /* MOVIE FUNCTIONS */
 module.exports.insertMovie = (data) => {
-  let mov = new MovieModel(data);
-  let insMovie = new Movie(mov);
-  try {
-    insMovie.save(function(err) {
-      if (err) throw err;
-      console.log('Movie successfully saved.');
+  let imdbID = JSON.parse(data).imdbID;
+  return new Promise((resolve,reject)=>{
+    Movie.findOne({"description.imdbID":imdbID}).then((movie) => {
+      console.log(movie);
+      if(!movie){
+        let mov = new MovieModel(data);
+        let insMovie = new Movie(mov);
+        try {
+          insMovie.save(function(err) {
+            if (err) throw err;
+            resolve(insMovie);
+            console.log('Movie successfully saved.');
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      }else{
+        resolve(movie);
+        console.log('movie already exists in database');
+      }
+
     });
-  } catch (e) {
-    console.log(e);
-  }
+  })
+
 };
 
 module.exports.getAllMoviesTitles = () => {
   return new Promise(function(resolve, reject) {
     let moviesArr = [];
     Movie.find({}, (err, movies) => {
-      movies.forEach((e) => {
-        console.log(e._id);
-        moviesArr.push(e.description['Title']);
-      });
-    }).then(() => {
-      resolve(moviesArr);
+      // movies.forEach((e) => {
+      //   moviesArr.push(e.description['Title']);
+      // });
+    }).then((movies) => {
+      resolve(movies);
     });
   });
 };
@@ -51,6 +64,16 @@ module.exports.getMovieFromId = (movieId) => {
   return new Promise(function(resolve, reject) {
     Movie.findOne({_id: movieId}).then((movieId) => {
       resolve(movieId);
+    });
+  });
+};
+
+module.exports.getMovieFromImdbId = (imdbID) => {
+  return new Promise(function(resolve, reject) {
+    Movie.count({"description.imdbID":"imdbID"}).then((count) => {
+      console.log(count);
+      console.log(imdbID);
+      resolve(count);
     });
   });
 };

@@ -8,7 +8,7 @@ class InputComponent extends Component {
   handleSubmit = (event)=>{
     event.preventDefault();
     const {sendQuery} = this.props;
-    sendQuery(event.target.query.value)
+    sendQuery(event.target.query.value);
   };
 
   render() {

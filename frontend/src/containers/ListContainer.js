@@ -6,19 +6,17 @@ import {fetchAllMoviesReq} from '../actions';
 class ListContainer extends Component{
 
   componentDidMount(){
-      this.props.fetchAllMovies();
-    console.log(this.props.listOfAllMovies);
+    this.props.fetchAllMovies();
   }
 
   render(){
-    // return <ListComponent fetchingMovies ={this.props.fetchAllMoviesReq}/>;
-    return <ListComponent listOfAllMovies ={this.props.listOfAllMovies}/>;
+    return <ListComponent listOfAllMovies ={this.props.moviesList}/>;
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    listOfAllMovies: state.listOfAllMovies
+    moviesList: state.moviesReducer.listOfAllMovies
   };
 };
 const mapDispatchToProps = (dispatch) => {

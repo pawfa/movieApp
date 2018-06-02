@@ -6,7 +6,9 @@ let database = require('../services/databaseService');
 
 router.get('/movies', function(req, res, next) {
   database.getAllMoviesTitles().then((moviesArr) => {
+    console.log(moviesArr[0]);
     res.send(moviesArr);
+
   });
 });
 
@@ -20,8 +22,10 @@ router.post('/movies', function(req, res, next) {
           if (parsedData['Error']) {
             res.status(404).send({error: parsedData['Error']});
           } else {
-            database.insertMovie(data);
-            res.send(Object.assign(req.body, JSON.parse(data)));
+            database.insertMovie(data).then((data)=>{
+              res.send(data);
+            });
+
           }
         });
   } else {

@@ -2,7 +2,7 @@ import {FETCHED_ALL_MOVIES,FETCH_ALL_MOVIES_REQ, FETCHED_MOVIE_RESPONSE} from '.
 
 const initState = {
   movieDescription: '',
-  listOfAllMovies: [1,2,3,4,5],
+  listOfAllMovies: [],
   listOfAllCommentsInDatabase:[],
   listOfCommentsForMovie:[]
 };
@@ -12,16 +12,23 @@ const moviesReducer = (state = initState, action) => {
   switch (action.type) {
 
     case FETCHED_ALL_MOVIES:
-      console.log(initState);
-      console.log(action.payload);
+      // console.log(action.payload);
       return {
-          ...initState,
+          ...state,
         listOfAllMovies: action.payload
       };
     case FETCHED_MOVIE_RESPONSE:
-      console.log(action.payload);
+      let imdbID = '';
+      let newState = Object.assign({},state);
+      try {
+        imdbID = action.payload.description.imdbID;
+        let exists = state.listOfAllMovies.map((e)=>e.description.imdbID).indexOf(imdbID);
+        if(!exists && imdbID) newState.listOfAllMovies.push(action.payload);
+      } catch (e) {console.log('Movie not found') }
+
       return {
-        ...state
+        ...state,
+        listOfAllMovies: [...state.listOfAllMovies]
       };
 
     case 'FETCH_COMMENTS_FOR_MOVIE':
