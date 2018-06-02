@@ -11,9 +11,10 @@ class MovieContainer extends Component{
 
 const mapStateToProps = (state) => {
   return {
-    movieDescription: state.movieDescription,
+    movieDescription: state.movieDescription
   };
 };
+
 const mapDispatchToProps = (dispatch) => {
   return {
   };

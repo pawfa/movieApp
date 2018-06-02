@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Input,Button} from "mdbreact";
 import './InputComponent.css'
+import {Row} from "mdbreact";
 
 class InputComponent extends Component {
 
@@ -10,17 +11,16 @@ class InputComponent extends Component {
     sendQuery(event.target.query.value)
   };
 
-
-
   render() {
 
     return <div className={'inputComponent'}>
       <form onSubmit={this.handleSubmit}>
-        <p className="h5 text-center mb-4">Sign in</p>
+        <Row>
         <Input className={'inputComponent-input'} name='query' hint="Type movie name" />
         <div className="text-center">
           <Button type='submit'>Login</Button>
         </div>
+        </Row>
       </form>
     </div>;
 

@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import {Button} from "mdbreact";
 import './ListComponent.css'
 
 class ListComponent extends Component {
-
-
   createButtons = ()=>{
-    let arr = [1,2,3,4,5,6,7,8];
+    let listOfAllMovies = [] || this.props.listOfAllMovies;
     let buttonsArr = [];
 
-    arr.forEach((i,e)=>{
+    listOfAllMovies.forEach((i,e)=>{
       buttonsArr.push(
-          <Button key={i} >{e}</Button>
+
+          <Button key={i}>1</Button>
       )
     });
     return buttonsArr;
@@ -27,5 +25,5 @@ class ListComponent extends Component {
   }
 
 }
-
+{/*<Button onClick={this.props.fetchingMovies} key={i} >{e}</Button>*/}
 export default ListComponent;

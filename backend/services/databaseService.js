@@ -17,7 +17,6 @@ module.exports.createDb = () => mongoose.connect(
     'mongodb://localhost:27017/movies', function(err) {
       if (err) throw err;
       console.log('Successfully connected');
-
     });
 
 /* MOVIE FUNCTIONS */
@@ -31,7 +30,6 @@ module.exports.insertMovie = (data) => {
     });
   } catch (e) {
     console.log(e);
-    console.log("tutaj");
   }
 };
 
