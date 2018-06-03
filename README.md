@@ -38,6 +38,7 @@ To run the application, cd into the `backend` folder and run:
 ```bash
 npm run install-dev
 npm run dev
+and go to http://localhost:3003
 ```
 
 ### Running unit tests
