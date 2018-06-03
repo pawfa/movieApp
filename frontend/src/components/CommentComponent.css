@@ -1,3 +1,16 @@
-.commentComponent {
-    border: 1px solid black;
+.commentComponent{
+    width:50vw;
+    /*height: 10vh;*/
+    margin: 20px auto;
+    border-left: 4px solid #009688;
+    text-align: left;
+    padding: 5px 20px;
+}
+header{
+    /*border-bottom: 1px solid lightgray;*/
+}
+
+.commentComponent-content{
+    /*border: 1px solid #000;*/
+    padding: 10px;
 }

@@ -12,7 +12,7 @@ const commentSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   movieId: mongoose.Schema.Types.ObjectId,
   content: String,
-  dateTime: Date
+  dateTime: String
 });
 
 let Movie = mongoose.model('Movie', movieSchema);
@@ -46,7 +46,6 @@ module.exports.insertMovie = (data) => {
         resolve(movie);
         console.log('movie already exists in database');
       }
-
     });
   });
 
@@ -72,8 +71,11 @@ module.exports.getMovieFromId = (movieId) => {
 /* COMMENTS FUNCTIONS */
 
 module.exports.insertComment = (body) => {
+  console.log('asdasdasd');
   return new Promise(function(resolve, reject) {
     let com = new CommentModel(body);
+    console.log(com.dateTime);
+    console.log(com);
     let insCom = new Comment(com);
     insCom.save(
         (err)=>{

@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {Input,Button} from "mdbreact";
 import './InputComponent.css'
-import {Row} from "mdbreact";
 
 class InputComponent extends Component {
 
@@ -14,14 +12,15 @@ class InputComponent extends Component {
   render() {
 
     return <div className={'inputComponent'}>
-      <form onSubmit={this.handleSubmit}>
-        <Row>
-        <Input className={'inputComponent-input'} name='query' hint="Type movie name" />
-        <div className="text-center">
-          <Button type='submit'>Login</Button>
+      <form onSubmit={this.handleSubmit} className={'md-form input-group '}>
+        <div className="md-form input-group">
+          <input type="text" className="form-control" placeholder="Type movie name" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+          <div className="input-group-append">
+            <button className="btn btn-default waves-effect m-0" type="button">Submit</button>
+          </div>
         </div>
-        </Row>
       </form>
+
     </div>;
 
   }

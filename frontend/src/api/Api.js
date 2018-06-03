@@ -1,6 +1,9 @@
+// const url ="http://backend.movies.pawfa.usermd.net:3004";
+const url ="http://localhost:3004";
+
 export function sendMovieQueryReq(param){
 
-  return fetch("http://backend.movies.pawfa.usermd.net:3004/movies",{
+  return fetch(url+"/movies",{
     body: JSON.stringify({query: param.payload}), // must match 'Content-Type' header
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, same-origin, *omit
@@ -24,7 +27,7 @@ export function sendMovieQueryReq(param){
 
 export function fetchAllMoviesReq(){
 
-  return fetch("http://backend.movies.pawfa.usermd.net:3004/movies",{
+  return fetch(url+"/movies",{
     headers: {
       'content-type': 'application/json'
     },
@@ -36,7 +39,7 @@ export function fetchAllMoviesReq(){
 
 export function sendCommentReq(param){
 
-  return fetch("http://backend.movies.pawfa.usermd.net:3004/comments",{
+  return fetch(url+"/comments",{
     body: JSON.stringify(param.payload), // must match 'Content-Type' header
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, same-origin, *omit
@@ -60,7 +63,7 @@ export function sendCommentReq(param){
 
 export function fetchAllCommentsReq(){
 
-  return fetch("http://backend.movies.pawfa.usermd.net:3004/comments",{
+  return fetch(url+"/comments",{
     headers: {
       'content-type': 'application/json'
     },
@@ -71,8 +74,7 @@ export function fetchAllCommentsReq(){
 }
 
 export function fetchCommentsForIdReq(param){
-  console.log(param);
-  return fetch("http://backend.movies.pawfa.usermd.net:3004/comments?id="+param.payload,{
+  return fetch(url+"/comments?id="+param.payload,{
     headers: {
       'content-type': 'application/json'
     },

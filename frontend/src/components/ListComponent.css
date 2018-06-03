@@ -1,3 +1,7 @@
 .listComponent{
+    width:80%;
     margin: 50px auto;
+}
+.btn-rounded{
+    border-radius: 30px;
 }

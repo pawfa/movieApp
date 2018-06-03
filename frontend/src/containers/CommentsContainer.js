@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
-import { Input} from 'mdbreact';
 import './CommentsContainer.css'
+import CommentComponent from '../components/CommentComponent';
 class CommentsContainer extends Component{
 
   createComments = (comments)=>{
-
     let commentsArr = [];
-    console.log(comments);
-
     comments.forEach((e,i)=>{
       commentsArr.push(
-          <div className={'comment-box z-depth-2'} key={i} id={e._id}>{e.content}</div>
+          <CommentComponent key={i} id={e._id} comment={e}/>
       )
     });
     return commentsArr;
@@ -19,7 +16,7 @@ class CommentsContainer extends Component{
   render(){
     const {comments} = this.props;
     if(comments) {
-      return <div className={'commentsContainer'}>
+      return <div>
         {this.createComments(comments)}
       </div>;
     }else{
@@ -28,14 +25,4 @@ class CommentsContainer extends Component{
   }
 
 }
-
-// const mapStateToProps = (state) => {
-// };
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//   };
-// };
-
-// CommentsContainer = connect(mapStateToProps, mapDispatchToProps)(
-//     CommentsContainer);
 export default CommentsContainer;

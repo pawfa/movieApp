@@ -1,7 +1,6 @@
 let express = require('express');
 let router = express.Router();
 let database = require('../services/databaseService');
-let Movie = require('../services/dbModels').Movie;
 
 router.get('/comments', function(req, res, next) {
   if(req.query.id){
@@ -13,7 +12,6 @@ router.get('/comments', function(req, res, next) {
       res.send(comments);
     });
   }
-
 });
 
 router.post('/comments', function(req, res, next) {

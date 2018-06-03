@@ -21,6 +21,7 @@ export default function* watcher() {
   yield takeLatest(FETCH_ALL_COMMENTS_REQ, fetchAllComments);
   yield takeLatest(SEND_COMMENT_REQ, sendComment);
   yield takeLatest(FETCH_COMMENTS_FOR_MOVIE_REQ, fetchCommentsForId);
+  yield takeLatest(FETCH_ALL_COMMENTS_REQ, fetchAllComments);
 }
 
 export function* sendQuery(param) {

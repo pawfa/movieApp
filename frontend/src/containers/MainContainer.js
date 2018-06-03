@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import ListContainer from '../containers/ListContainer';
 import MovieContainer from '../containers/MovieContainer';
 import CommentsContainer from '../containers/CommentsContainer';
-import {fetchCommentsForMovie, sendComment, sendMovieQuery} from '../actions';
+import {fetchCommentsForMovie, sendComment, sendMovieQuery, fetchAllCommentsReq} from '../actions';
 import InputComponent from '../components/InputComponent';
 import InputCommentComponent from '../components/InputCommentComponent';
 
@@ -30,13 +30,16 @@ class MainContainer extends Component {
       movieId: id
     });
   };
+  fetchAllComments = () =>{
+    this.props.fetchAllComments();
+  };
 
   render() {
     return <div>
       <InputComponent sendQuery={this.props.sendMovieQuery} />
       <ListContainer showMovie={this.showMovieDescription}/>
       <MovieContainer movieData={this.state.movieData}/>
-      <InputCommentComponent movieId={this.state.movieId} sendComment={this.props.sendComment}/>
+      <InputCommentComponent movieId={this.state.movieId} sendComment={this.props.sendComment} showAllComments={this.fetchAllComments}/>
       <CommentsContainer movieId={this.state.movieId} comments={this.props.commentsArr}/>
     </div>;
   }
@@ -59,6 +62,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     fetchComments: (movieId)=> {
       dispatch(fetchCommentsForMovie(movieId))
+    },
+    fetchAllComments: ()=> {
+      dispatch(fetchAllCommentsReq())
     }
   };
 };

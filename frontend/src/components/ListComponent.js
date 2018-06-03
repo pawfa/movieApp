@@ -10,7 +10,7 @@ class ListComponent extends Component {
 
     listOfAllMovies.forEach((e,i)=>{
       buttonsArr.push(
-          <Button key={i} id={e._id} onClick={showMovie}>{e.description['Title']}</Button>
+          <Button className={'btn-rounded'} key={i} id={e._id} onClick={showMovie}>{e.description['Title']}</Button>
       )
     });
     return buttonsArr;

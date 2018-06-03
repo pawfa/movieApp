@@ -4,31 +4,43 @@ import './InputCommentComponent.css'
 
 class InputCommentComponent extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ''
+    };
+  }
+
   handleSubmit = (event)=>{
     event.preventDefault();
     const {sendComment,movieId} = this.props;
-    sendComment({movieId: movieId, content: event.target.comment.value});
+    const {value} = this.state;
+    if(value){
+      sendComment({movieId: movieId, content: value});
+    }
+    this.setState({value: ''});
+  };
 
+  handleChange = (event) => {
+    console.log(this.state);
+    this.setState({value: event.target.value});
   };
 
   render() {
-    const{movieId} = this.props;
+    const{movieId,showAllComments} = this.props;
     if(movieId){
       return <div className={'inputComment'}>
         <form onSubmit={this.handleSubmit}>
-            <Input value="" className={'inputComment-input'} name='comment' type="textarea" label="Place for your comment"/>
-            <div className="text-center">
+            <Input value={this.state.value} onChange={this.handleChange} className={'inputComment-input'} type="textarea" label="Place your comment here"/>
+            <div className="float-right">
               <Button type='submit'>Submit</Button>
+              <Button onClick={showAllComments}>All comments</Button>
             </div>
-
         </form>
-
       </div>;
     }else{
       return null;
     }
-
-
   }
 
 }
