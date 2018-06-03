@@ -6,11 +6,13 @@ router.get('/comments', function(req, res, next) {
   if(req.query.id){
     database.getCommentsFromId(req.query.id).then( (comments) =>{
       res.send(comments);
-    });
+    }).catch(
+        ()=> { res.status(404).send({ error: 'Wrong movie id' }) }
+    );
   }else{
     database.getAllComments().then( (comments) =>{
       res.send(comments);
-    });
+    })
   }
 });
 
@@ -19,7 +21,7 @@ router.post('/comments', function(req, res, next) {
       (data) =>{
         res.send(data)
       }
-  ).catch ( (e)=> { console.log(e); res.status(404).send({ error: 'Error while inserting comment' }) });
+  ).catch ( (e)=> { res.status(404).send({ error: 'Error while inserting comment' }) });
 });
 
 module.exports = router;

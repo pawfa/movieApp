@@ -100,9 +100,10 @@ module.exports.getCommentsFromId = (movieId) => {
   console.log(movieId);
   return new Promise(function(resolve, reject) {
     Comment.find({movieId: movieId}).then((comments) => {
-      console.log(comments);
       resolve(comments);
-    });
+    }).catch(
+        ()=> reject(new Error())
+    );
   });
 };
 

@@ -1,5 +1,5 @@
-// const url ="http://backend.movies.pawfa.usermd.net:3004";
-const url ="http://localhost:3004";
+const url ="http://backend.movies.pawfa.usermd.net:3004";
+// const url ="http://localhost:3004";
 
 export function sendMovieQueryReq(param){
 

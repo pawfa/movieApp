@@ -9,7 +9,7 @@ let database = require('./services/databaseService');
 let cors = require('cors');
 let app = express();
 app.set('port', process.env.PORT || 3004);
-let listener = app.listen(3004, function(){
+let listener = app.listen(3004, function() {
   console.log('Listening on port ' + listener.address().port); //Listening on port 8888
 });
 // view engine setup
@@ -19,14 +19,14 @@ app.set('view engine', 'jade');
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
 database.createDb();
 // app.use('/users', usersRouter);
