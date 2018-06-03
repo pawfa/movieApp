@@ -3,6 +3,7 @@
 let mongoose = require('mongoose');
 let {MovieModel} = require('./dbModels');
 let {CommentModel} = require('./dbModels');
+
 const movieSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   description: JSON
@@ -29,19 +30,14 @@ module.exports.insertMovie = (data) => {
   let imdbID = JSON.parse(data).imdbID;
   return new Promise((resolve, reject) => {
     Movie.findOne({'description.imdbID': imdbID}).then((movie) => {
-      console.log(movie);
       if (!movie) {
         let mov = new MovieModel(data);
         let insMovie = new Movie(mov);
-        try {
           insMovie.save(function(err) {
             if (err) throw err;
             resolve(insMovie);
             console.log('Movie successfully saved.');
           });
-        } catch (e) {
-          console.log(e);
-        }
       } else {
         resolve(movie);
         console.log('movie already exists in database');
@@ -71,11 +67,8 @@ module.exports.getMovieFromId = (movieId) => {
 /* COMMENTS FUNCTIONS */
 
 module.exports.insertComment = (body) => {
-  console.log('asdasdasd');
   return new Promise(function(resolve, reject) {
     let com = new CommentModel(body);
-    console.log(com.dateTime);
-    console.log(com);
     let insCom = new Comment(com);
     insCom.save(
         (err)=>{

@@ -17,11 +17,12 @@ router.get('/comments', function(req, res, next) {
 });
 
 router.post('/comments', function(req, res, next) {
-  database.insertComment(req.body).then(
+  req.body.content ? database.insertComment(req.body).then(
       (data) =>{
         res.send(data)
       }
-  ).catch ( (e)=> { res.status(404).send({ error: 'Error while inserting comment' }) });
+  ).catch ( ()=> { res.status(404).send({ error: 'Error while inserting comment' }) })
+      : res.status(404).send({ error: 'Body is empty!' })
 });
 
 module.exports = router;

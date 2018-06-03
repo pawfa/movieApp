@@ -61,6 +61,22 @@ describe('API endpoint /movies', function() {
         });
   });
 
+
+  // POST - Empty body
+  it('should return error', function() {
+    return chai.request(app)
+        .post('/movies')
+        .send({
+        })
+        .then(function(res) {
+          expect(res).to.have.status(404);
+          expect(res).to.be.json;
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.include({error: "Body is empty!"});
+        });
+  });
+
+
   // GET - List all comments
   it('should return all comments', function() {
     return chai.request(app)
@@ -90,6 +106,20 @@ describe('API endpoint /movies', function() {
         .get('/invalid_path')
         .then(function(res) {
           expect(res).to.have.status(404);
+        });
+  });
+
+  // POST - Empty body
+  it('should return error', function() {
+    return chai.request(app)
+        .post('/comments')
+        .send({
+        })
+        .then(function(res) {
+          expect(res).to.have.status(404);
+          expect(res).to.be.json;
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.include({error: "Body is empty!"});
         });
   });
 

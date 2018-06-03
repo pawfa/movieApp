@@ -5,8 +5,9 @@ class InputComponent extends Component {
 
   handleSubmit = (event)=>{
     event.preventDefault();
+    const {value} = event.target.query;
     const {sendQuery} = this.props;
-    sendQuery(event.target.query.value);
+    if(value) sendQuery(value);
   };
 
   render() {
@@ -14,9 +15,9 @@ class InputComponent extends Component {
     return <div className={'inputComponent'}>
       <form onSubmit={this.handleSubmit} className={'md-form input-group '}>
         <div className="md-form input-group">
-          <input type="text" className="form-control" placeholder="Type movie name" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+          <input name='query' type="text" className="form-control" placeholder="Type movie name" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
           <div className="input-group-append">
-            <button className="btn btn-default waves-effect m-0" type="button">Submit</button>
+            <button className="btn btn-default waves-effect m-0" type="submit">Submit</button>
           </div>
         </div>
       </form>
