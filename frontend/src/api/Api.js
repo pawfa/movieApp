@@ -1,19 +1,16 @@
-// const url ="http://backend.movies.pawfa.usermd.net:3004";
 const url ="http://localhost:3004";
 
 export function sendMovieQueryReq(param){
 
   return fetch(url+"/movies",{
-    body: JSON.stringify({query: param.payload}), // must match 'Content-Type' header
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, same-origin, *omit
+    body: JSON.stringify({query: param.payload}),
+    cache: 'no-cache',
     headers: {
       'content-type': 'application/json'
     },
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, cors, *same-origin
-    redirect: 'follow', // manual, *follow, error
-    referrer: 'no-referrer', // *client, no-referrer
+    method: 'POST',
+    redirect: 'follow',
+    referrer: 'no-referrer',
   }).then(
       (response)=> {
         if(response.status === 404){
@@ -31,7 +28,7 @@ export function fetchAllMoviesReq(){
     headers: {
       'content-type': 'application/json'
     },
-    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    method: 'GET',
   }).then(
       (response)=> { return response.json()}
   )
@@ -40,16 +37,14 @@ export function fetchAllMoviesReq(){
 export function sendCommentReq(param){
 
   return fetch(url+"/comments",{
-    body: JSON.stringify(param.payload), // must match 'Content-Type' header
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, same-origin, *omit
+    body: JSON.stringify(param.payload),
+    cache: 'no-cache',
     headers: {
       'content-type': 'application/json'
     },
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, cors, *same-origin
-    redirect: 'follow', // manual, *follow, error
-    referrer: 'no-referrer', // *client, no-referrer
+    method: 'POST',
+    redirect: 'follow',
+    referrer: 'no-referrer',
   }).then(
       (response)=> {
         if(response.status === 404){
@@ -67,7 +62,7 @@ export function fetchAllCommentsReq(){
     headers: {
       'content-type': 'application/json'
     },
-    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    method: 'GET',
   }).then(
       (response)=> { return response.json()}
   )
@@ -78,7 +73,7 @@ export function fetchCommentsForIdReq(param){
     headers: {
       'content-type': 'application/json'
     },
-    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    method: 'GET',
   }).then(
       (response)=> { return response.json()}
   )

@@ -12,7 +12,6 @@ class CommentsContainer extends Component {
     return comments
         ? <div>{this.createComments(comments)}
         </div> : null;
-
   }
 }
 

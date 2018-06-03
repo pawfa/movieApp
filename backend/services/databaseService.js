@@ -18,7 +18,7 @@ let Movie = mongoose.model('Movie', movieSchema);
 let Comment = mongoose.model('Comment', commentSchema);
 
 module.exports.createDb = () => mongoose.connect(
-    'mongodb://localhost:27017/movies', function(err) {
+    'mongodb://localhost:27017/movies', err => {
       if (err) throw err;
       console.log('Successfully connected');
     });
@@ -27,11 +27,10 @@ module.exports.createDb = () => mongoose.connect(
 module.exports.insertMovie = (data) => {
   let imdbID = JSON.parse(data).imdbID;
   return new Promise((resolve, reject) => {
-    Movie.findOne({'description.imdbID': imdbID}).then((movie) => {
+    Movie.findOne({'description.imdbID': imdbID}).then( movie => {
       if (!movie) {
-        let mov = new MovieModel(data);
-        let insMovie = new Movie(mov);
-        insMovie.save(function(err) {
+        let insMovie = new Movie(new MovieModel(data));
+        insMovie.save( err => {
           if (err) throw err;
           resolve(insMovie);
           console.log('Movie successfully saved.');
@@ -46,7 +45,7 @@ module.exports.insertMovie = (data) => {
 };
 
 module.exports.getAllMovies = () => {
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) =>{
     Movie.find({}, (err, movies) => {
     }).then((movies) => {
       resolve(movies);
@@ -55,21 +54,20 @@ module.exports.getAllMovies = () => {
 };
 
 module.exports.getMovieFromId = (movieId) => {
-  return new Promise(function(resolve, reject) {
-    Movie.findOne({_id: movieId}).then((movieId) => {
-      resolve(movieId);
-    });
+  return new Promise((resolve, reject) => {
+    Movie.findOne({_id: movieId}).then(
+        movieId => resolve(movieId)
+    );
   });
 };
 
 /* COMMENTS FUNCTIONS */
 
-module.exports.insertComment = (body) => {
+module.exports.insertComment = body => {
   return new Promise(function(resolve, reject) {
-    let com = new CommentModel(body);
-    let insCom = new Comment(com);
+    let insCom = new Comment(new CommentModel(body));
     insCom.save(
-        (err) => {
+        err => {
           if (err) throw err;
           resolve(insCom);
           console.log('Comment successfully saved.');
@@ -78,18 +76,15 @@ module.exports.insertComment = (body) => {
 };
 
 module.exports.getAllComments = () => {
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) => {
     Comment.find({}).sort({dateTime: -1}).exec((err, comments) => resolve(comments));
   });
 };
 
-module.exports.getCommentsFromId = (movieId) => {
-  return new Promise(function(resolve, reject) {
+module.exports.getCommentsFromId = movieId => {
+  return new Promise((resolve, reject) => {
     Comment.find({movieId: movieId}).sort({dateTime: -1}).exec((err, comments) => {
-      if(err) {
-        reject(new Error());
-      }
-      resolve(comments)
+      err ? reject(new Error()) : resolve(comments)
     });
   });
 };
