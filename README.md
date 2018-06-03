@@ -44,5 +44,6 @@ npm test
 To run the application, cd into the `backend` folder and run:
  
 ```bash
+npm run install-dev
 npm run dev
 ```
