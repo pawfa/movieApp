@@ -9,7 +9,6 @@ class CommentsContainer extends Component {
 
   render() {
     const {comments} = this.props;
-    console.log(comments);
     return comments
         ? <div>{this.createComments(comments)}
         </div> : null;

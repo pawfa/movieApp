@@ -24,8 +24,7 @@ router.post('/movies', function(req, res, next) {
 
         }
       }).catch(
-      () => res.status(404).send({error: 'Movie not saved in database'}),
-      )
+      () => res.status(404).send({error: 'Movie not saved in database'}))
       : res.status(404).send({error: 'Body is empty!'});
 });
 

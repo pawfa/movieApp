@@ -73,8 +73,7 @@ module.exports.insertComment = (body) => {
           if (err) throw err;
           resolve(insCom);
           console.log('Comment successfully saved.');
-        },
-    );
+        });
   });
 };
 
@@ -85,7 +84,6 @@ module.exports.getAllComments = () => {
 };
 
 module.exports.getCommentsFromId = (movieId) => {
-  console.log(movieId);
   return new Promise(function(resolve, reject) {
     Comment.find({movieId: movieId}).sort({dateTime: -1}).exec((err, comments) => {
       if(err) {
