@@ -31,14 +31,6 @@ cd movieApp
 ```
 This will get a copy of the project installed locally.
 
-### Running unit tests
-
-To run backend testing, cd into the `backend` folder and run:
- 
-```bash
-npm test
-```
-
 ### Executing program
 
 To run the application, cd into the `backend` folder and run:
@@ -46,4 +38,12 @@ To run the application, cd into the `backend` folder and run:
 ```bash
 npm run install-dev
 npm run dev
+```
+
+### Running unit tests
+
+To run backend testing, cd into the `backend` folder and run:
+ 
+```bash
+npm test
 ```
