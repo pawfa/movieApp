@@ -5,15 +5,10 @@ import './ListComponent.css'
 class ListComponent extends Component {
   createButtons = ()=>{
     let {listOfAllMovies, showMovie} = this.props;
-    let buttonsArr = [];
-    console.log(listOfAllMovies);
 
-    listOfAllMovies.forEach((e,i)=>{
-      buttonsArr.push(
+    return listOfAllMovies.map((e,i)=>
           <Button className={'btn-rounded'} key={i} id={e._id} onClick={showMovie}>{e.description['Title']}</Button>
-      )
-    });
-    return buttonsArr;
+    );
   };
 
   render() {

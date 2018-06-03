@@ -3,20 +3,21 @@ import {connect} from 'react-redux';
 import ListComponent from '../components/ListComponent';
 import {fetchAllMoviesReq} from '../actions';
 
-class ListContainer extends Component{
+class ListContainer extends Component {
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchAllMovies();
   }
 
-  render(){
-    return <ListComponent listOfAllMovies ={this.props.moviesList} showMovie={this.props.showMovie}/>;
+  render() {
+    return <ListComponent listOfAllMovies={this.props.moviesList}
+                          showMovie={this.props.showMovie}/>;
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    moviesList: state.movies
+    moviesList: state.movies,
   };
 };
 const mapDispatchToProps = (dispatch) => {

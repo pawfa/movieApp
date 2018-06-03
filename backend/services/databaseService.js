@@ -1,19 +1,17 @@
-
-
 let mongoose = require('mongoose');
 let {MovieModel} = require('./dbModels');
 let {CommentModel} = require('./dbModels');
 
 const movieSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  description: JSON
+  description: JSON,
 });
 
 const commentSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   movieId: mongoose.Schema.Types.ObjectId,
   content: String,
-  dateTime: String
+  dateTime: Date,
 });
 
 let Movie = mongoose.model('Movie', movieSchema);
@@ -33,11 +31,11 @@ module.exports.insertMovie = (data) => {
       if (!movie) {
         let mov = new MovieModel(data);
         let insMovie = new Movie(mov);
-          insMovie.save(function(err) {
-            if (err) throw err;
-            resolve(insMovie);
-            console.log('Movie successfully saved.');
-          });
+        insMovie.save(function(err) {
+          if (err) throw err;
+          resolve(insMovie);
+          console.log('Movie successfully saved.');
+        });
       } else {
         resolve(movie);
         console.log('movie already exists in database');
@@ -71,32 +69,30 @@ module.exports.insertComment = (body) => {
     let com = new CommentModel(body);
     let insCom = new Comment(com);
     insCom.save(
-        (err)=>{
+        (err) => {
           if (err) throw err;
           resolve(insCom);
           console.log('Comment successfully saved.');
-        }
-    )
+        },
+    );
   });
 };
 
 module.exports.getAllComments = () => {
   return new Promise(function(resolve, reject) {
-    Comment.find({}, (err, comments) => {
-    }).then((comments) => {
-      resolve(comments);
-    });
+    Comment.find({}).sort({dateTime: -1}).exec((err, comments) => resolve(comments));
   });
 };
 
 module.exports.getCommentsFromId = (movieId) => {
   console.log(movieId);
   return new Promise(function(resolve, reject) {
-    Comment.find({movieId: movieId}).then((comments) => {
-      resolve(comments);
-    }).catch(
-        ()=> reject(new Error())
-    );
+    Comment.find({movieId: movieId}).sort({dateTime: -1}).exec((err, comments) => {
+      if(err) {
+        reject(new Error());
+      }
+      resolve(comments)
+    });
   });
 };
 

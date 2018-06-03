@@ -13,7 +13,7 @@ export const sendMovieQuery = (query) => ({
   payload: query,
 });
 
-export const sendComment = (comment) => ({
+export const sendCommentReq = (comment) => ({
   type: SEND_COMMENT_REQ,
   payload: comment,
 });

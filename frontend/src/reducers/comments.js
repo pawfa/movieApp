@@ -9,7 +9,7 @@ const comments = (state = [], action) => {
     case FETCHED_ALL_COMMENTS:
       return [...action.payload];
     case FETCHED_COMMENT_RESPONSE:
-      return [...state, action.payload];
+      return [action.payload,...state];
     case FETCHED_COMMENTS_FOR_MOVIE:
       return [...action.payload];
     default:

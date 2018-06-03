@@ -10,14 +10,11 @@ const movies = (state = [], action) => {
       return [...action.payload];
     case FETCHED_MOVIE_RESPONSE:
       let imdbID = action.payload.description.imdbID;
-      let exists = state.find((e) => e.description.imdbID === imdbID);
-      if (!exists) {
-        return [...state, action.payload];
-      }
-      return state;
+      return state.find(e => e.description.imdbID === imdbID)
+          ? state
+          : [...state, action.payload];
     default:
       return state;
   }
 };
-
 export default movies;

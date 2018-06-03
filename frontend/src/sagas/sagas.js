@@ -37,11 +37,9 @@ export function* fetchAllMovies() {
 }
 
 export function* sendComment(param) {
-  console.log(param);
-  try {
     const comments = yield call(sendCommentReq, param);
     yield put({type: FETCHED_COMMENT_RESPONSE, payload: comments});
-  } catch (e) {console.log(e); }
+
 }
 
 export function* fetchAllComments() {
