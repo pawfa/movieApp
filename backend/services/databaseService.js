@@ -1,6 +1,6 @@
-let mongoose = require('mongoose');
-let {MovieModel} = require('./dbModels');
-let {CommentModel} = require('./dbModels');
+const mongoose = require('mongoose');
+const {MovieModel} = require('./dbModels');
+const {CommentModel} = require('./dbModels');
 
 const movieSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
@@ -14,8 +14,8 @@ const commentSchema = mongoose.Schema({
   dateTime: Date,
 });
 
-let Movie = mongoose.model('Movie', movieSchema);
-let Comment = mongoose.model('Comment', commentSchema);
+const Movie = mongoose.model('Movie', movieSchema);
+const Comment = mongoose.model('Comment', commentSchema);
 
 module.exports = {
   createDb : () => mongoose.connect(
