@@ -1,9 +1,11 @@
 let express = require('express');
 let router = express.Router();
-let moviesRouter =  require("./moviesRoute");
-let commentsRouter =  require("./commentsRoute");
+const commentsController = require('../controllers/commentsController');
+const moviesController = require('../controllers/moviesController');
 
-router.all('/movies', moviesRouter);
-router.all('/comments', commentsRouter);
+router.get('/movies', moviesController.findOne);
+router.post('/movies', moviesController.insert);
+router.get('/comments', (req, res, next) =>  req.query.id ? commentsController.findComments(req,res,next) : commentsController.findAll(req,res,next));
+router.post('/comments', commentsController.save);
 
 module.exports = router;
