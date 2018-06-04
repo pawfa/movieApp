@@ -81,7 +81,7 @@ getCommentsFromId : movieId => {
     Comment.find({movieId: movieId})
         .sort({dateTime: -1})
         .exec((err, comments) => {
-          err ? reject(new Error()) : resolve(comments)
+          err || comments.length === 0? reject(new Error()) : resolve(comments)
         });
   });
 }
