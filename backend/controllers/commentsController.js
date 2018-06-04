@@ -2,7 +2,7 @@ const database = require('../services/databaseService');
 module.exports = {
 
   findComments(req, res, next) {
-    database.getCommentsFromId(req.params.id).then((comments) => {
+    database.getCommentsFromId(req.query.id).then((comments) => {
       res.send(comments);
     }).catch(
         () => res.status(404).send({error: 'Wrong movie id'})

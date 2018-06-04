@@ -78,6 +78,7 @@ getAllComments : () => {
 
 getCommentsFromId : movieId => {
   return new Promise((resolve, reject) => {
+    console.log(movieId);
     Comment.find({movieId: movieId})
         .sort({dateTime: -1})
         .exec((err, comments) => {
