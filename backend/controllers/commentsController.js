@@ -5,13 +5,12 @@ module.exports = {
     database.getCommentsFromId(req.params.id).then((comments) => {
       res.send(comments);
     }).catch(
-        () => res.status(404).send({error: 'Wrong movie id'}),
-    );
-  },
+        () => res.status(404).send({error: 'Wrong movie id'})
+    )},
   save(req, res, next) {
     req.body.content ? database.insertComment(req.body)
         .then(
-            data => res.send(data),
+            data => res.send(data)
         )
         .catch(() => res.status(404)
             .send({error: 'Error while inserting comment'}))
@@ -20,6 +19,5 @@ module.exports = {
   findAll(req, res, next) {
     database.getAllComments().then(comments =>
         res.send(comments),
-    );
-  },
+    )},
 };
