@@ -14,14 +14,13 @@ router.post('/movies', function(req, res, next) {
   let searchQuery = req.body.query;
   searchQuery ? fetchMoviesFromExternalApiService.fetch(searchQuery).then(
       (data) => {
-        let parsedData = JSON.parse(data);
-        if (parsedData['Error']) {
-          res.status(404).send({error: parsedData['Error']});
+        let err = JSON.parse(data)['Error'];
+        if (err) {
+          res.status(404).send({error: err});
         } else {
           database.insertMovie(data).then((data) => {
             res.send(data);
           });
-
         }
       }).catch(
       () => res.status(404).send({error: 'Movie not saved in database'}))
