@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2f813363-3a93-49b4-a12b-0db669ae5c63" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/moviesRoute.js" afterPath="$PROJECT_DIR$/backend/routes/moviesRoute.js" />
-      <change beforePath="$PROJECT_DIR$/backend/services/databaseService.js" afterPath="$PROJECT_DIR$/backend/services/databaseService.js" />
-      <change beforePath="$PROJECT_DIR$/backend/services/dbModels.js" afterPath="$PROJECT_DIR$/backend/services/dbModels.js" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CommentComponent.js" afterPath="$PROJECT_DIR$/frontend/src/components/CommentComponent.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,6 +30,40 @@
             <state relative-caret-position="272">
               <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommentsContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/containers/CommentsContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListComponent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/ListComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommentComponent.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/CommentComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,7 +108,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="moviesRoute.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="moviesRoute.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/routes/moviesRoute.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
@@ -151,7 +183,6 @@
         <option value="$PROJECT_DIR$/frontend/src/components/ListComponent.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/InputComponent.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/InputCommentComponent.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/CommentComponent.js" />
         <option value="$PROJECT_DIR$/frontend/src/actions/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/containers/MainContainer.js" />
         <option value="$PROJECT_DIR$/frontend/src/sagas/sagas.js" />
@@ -169,6 +200,7 @@
         <option value="$PROJECT_DIR$/backend/services/dbModels.js" />
         <option value="$PROJECT_DIR$/backend/services/databaseService.js" />
         <option value="$PROJECT_DIR$/backend/routes/moviesRoute.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/CommentComponent.js" />
       </list>
     </option>
   </component>
@@ -435,7 +467,7 @@
       <workItem from="1528033973486" duration="1108000" />
       <workItem from="1528035209854" duration="3394000" />
       <workItem from="1528050125546" duration="592000" />
-      <workItem from="1528086810728" duration="1034000" />
+      <workItem from="1528086810728" duration="1600000" />
     </task>
     <task id="LOCAL-00001" summary="Second commit.">
       <created>1527938405317</created>
@@ -535,11 +567,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528050578350</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Minor corrections.">
+      <created>1528087854379</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1528087854379</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93337000" />
+    <option name="totallyTimeSpent" value="93903000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2514" height="1096" extended-state="6" />
@@ -770,24 +809,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/ListComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="38" lean-forward="true" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/CommentComponent.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/CommentComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -900,14 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/CommentsContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/containers/ListContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -961,6 +978,34 @@
         <state relative-caret-position="272">
           <caret line="16" column="44" lean-forward="true" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/containers/CommentsContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/ListComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/CommentComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
